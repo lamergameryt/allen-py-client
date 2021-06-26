@@ -32,3 +32,6 @@ class VideosTestCase(unittest.TestCase):
             link = video.get_link()
             self.assertTrue(re.match(self._regex, link) is not None, msg='The url received from the server was '
                                                                          'invalid.')
+
+    def test_solution(self):
+        solutions = self._client.get_test_records()

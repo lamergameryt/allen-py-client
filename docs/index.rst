@@ -13,7 +13,6 @@ Welcome to AllenPyClient's documentation!
    allenpyclient
 
 
-
 Indices and tables
 ==================
 

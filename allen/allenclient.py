@@ -4,20 +4,22 @@ from typing import Union
 from allen.utils import fetch_jwt_from_otp, require_otp, validate_response
 from allen.video import RecordedVideo
 from allen.exceptions import AllenInvalidUsernamePassword, AllenResponseUnavailable, AllenInvalidResponse
+from allen.test_record import TestRecord
 
 
 class AllenClient:
     """
     Base class for access to Allen's API.
+
+    .. note::
+
+        You do not have the enter all three init parameters.
+        Either authenticate using username and password, or using JWT.
     """
 
     def __init__(self, username: Union[str, int] = None, password: str = None, jwt: str = None):
         """
         Initialize connection to Allen's API.
-
-        .. note::
-            You do not have the enter all three method parameters.
-            Either authenticate using username and password, or using JWT.
 
         :param username: The form number used to log into Allen's website.
         :param password: The password used to log into Allen's website.
@@ -50,8 +52,7 @@ class AllenClient:
 
         :return: A list of :class:`the RecordedVideo class <video.RecordedVideo>`
         """
-        response = self.fetch_json('dc/student/recordinglist')
-        video_day_list = response['data']
+        video_day_list = self.fetch_json('dc/student/recordinglist')
         video_list = list()
 
         for video_day in video_day_list:
@@ -61,6 +62,21 @@ class AllenClient:
                 video_list.append(RecordedVideo.from_json(video_json, date, self))
 
         return video_list
+
+    def get_test_records(self) -> list[TestRecord]:
+        """
+        Fetch the list of tests you've attempted.
+
+        :return: A list of :class:`the TestRecord class <test_record.TestRecord>`
+        """
+        json = self.fetch_json('studenttestrecord')
+        test_list = json['testList']
+        tests = list()
+
+        for test in test_list:
+            tests.append(TestRecord.from_json(test, self))
+
+        return tests
 
     def fetch_json(self, url_path: str, http_method: str = 'POST', secure: bool = True, headers: dict = None,
                    query_params: dict = None, post_data: dict = None) -> Union[dict, requests.Response]:
@@ -106,7 +122,7 @@ class AllenClient:
         if 'data' not in json or json['data'] is None:
             raise AllenInvalidResponse(response)
 
-        return json
+        return json['data']
 
     def __setup(self):
         """

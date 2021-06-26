@@ -12,10 +12,10 @@ allen\.allenclient module
     :undoc-members:
     :show-inheritance:
 
-allen\.exceptions module
-------------------------
+allen\.test_record module
+-------------------------
 
-.. automodule:: allen.exceptions
+.. automodule:: allen.test_record
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,3 +28,18 @@ allen\.video module
     :undoc-members:
     :show-inheritance:
 
+allen\.solution module
+----------------------
+
+.. automodule:: allen.solution
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+allen\.exceptions module
+------------------------
+
+.. automodule:: allen.exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:

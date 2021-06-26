@@ -11,6 +11,7 @@ class RecordedVideo:
     '''The name of the subject taught in the recorded video'''
 
     _date: str
+    '''The date the video was recorded'''
 
     @classmethod
     def from_json(cls, json_obj: dict, date: str, client):
@@ -34,7 +35,7 @@ class RecordedVideo:
 
         :return: The link of the video.
         """
-        json = self.client.fetch_json('dc/student/recordingplayer', post_data={'UniqueCode': self.unique_code})['data']
+        json = self.client.fetch_json('dc/student/recordingplayer', post_data={'UniqueCode': self.unique_code})
         return json['ClassURL']
 
     def get_recording_date(self) -> str:
