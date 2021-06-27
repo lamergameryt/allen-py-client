@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='allen-py-client',
-    version='1.0.12',
+    version='1.0.21',
     description='Unofficial python wrapper for Allen\'s web API.',
     long_description=open('README.rst', encoding="utf8").read(),
     author='Harsh Patil',
@@ -21,7 +21,12 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
-    install_requires=['requests'],
+    install_requires=['requests', 'termcolor', 'stdiomask'],
     packages=find_packages(),
     include_package_data=True,
+    entry_points={
+        'console_scripts': [
+            'allen=allen.command_line:main'
+        ]
+    }
 )

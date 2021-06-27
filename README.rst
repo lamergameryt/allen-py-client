@@ -37,6 +37,12 @@ In this example, we will fetch the links of the videos available to us.
         # Print the video link with the subject name and recording date
         print(f'{video.subject_name} ({video.get_recording_date()}) - {link}')
 
+You can also use the library from a command line.
+
+::
+
+    $ allen help
+    $ allen videos
 
 👩‍🏫 Installation
 ------------------
@@ -49,3 +55,8 @@ In this example, we will fetch the links of the videos available to us.
 --------------------------
 
 The list of required python modules can be found in the ``requirements.txt`` file.
+
+📜 Documentation
+----------------
+
+To view the documentation for this project, visit the `documentation page <https://allenpyclient.readthedocs.io/en/latest/>`_.
