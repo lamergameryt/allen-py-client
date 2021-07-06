@@ -59,6 +59,6 @@ class SubjectSolution:
         """
         Get the list of Solution for the subject.
 
-        :return: A list of :py:class:`the Solution object <solution.Solution>`
+        :return: A list of the class:`Solution` object
         """
         return self.solutions
