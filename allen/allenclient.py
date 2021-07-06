@@ -50,7 +50,7 @@ class AllenClient:
         """
         Fetch the list of recorded videos available to view.
 
-        :return: A list of :class:`the RecordedVideo class <video.RecordedVideo>`
+        :return: A list of :py:class:`the RecordedVideo class <video.RecordedVideo>`
         """
         video_list_json = self.fetch_json('dc/student/recordinglist')
         video_list = list()
@@ -67,7 +67,7 @@ class AllenClient:
         """
         Fetch the list of upcoming live classes.
 
-        :return: A list of :class:`the LiveClassDay class <video.LiveClassDay>`
+        :return: A list of :py:class:`the LiveClassDay class <video.LiveClassDay>`
         """
         live_class_day_list_json = self.fetch_json('dc/student/livelist')
         return [LiveClassDay.from_json(live_class_day) for live_class_day in live_class_day_list_json]
@@ -76,7 +76,7 @@ class AllenClient:
         """
         Fetch the list of tests you've attempted.
 
-        :return: A list of :class:`the TestRecord class <test_record.TestRecord>`
+        :return: A list of :py:class:`the TestRecord class <test_record.TestRecord>`
         """
         json = self.fetch_json('studenttestrecord')
         test_list = json['testList']
