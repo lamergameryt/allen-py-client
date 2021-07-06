@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass(frozen=True, order=True)
@@ -35,7 +36,7 @@ class SubjectSolution:
     total_questions: int
     '''The number of questions which were present for the subject'''
 
-    solutions: list[Solution]
+    solutions: List[Solution]
     '''The list of solutions for the subject'''
 
     @classmethod
@@ -58,6 +59,6 @@ class SubjectSolution:
         """
         Get the list of Solution for the subject.
 
-        :return: A list of :class:`the Solution object <solution.Solution>`
+        :return: A list of the class:`Solution` object
         """
         return self.solutions

@@ -5,6 +5,7 @@ from allen.utils import fetch_jwt_from_otp, require_otp, validate_response
 from allen.video import RecordedVideo, LiveClassDay
 from allen.exceptions import AllenInvalidUsernamePassword, AllenResponseUnavailable, AllenInvalidResponse
 from allen.test_record import TestRecord
+from typing import List
 
 
 class AllenClient:
@@ -46,11 +47,11 @@ class AllenClient:
 
         self.api_url = 'ddcapi.allenbpms.in/api'
 
-    def get_recorded_videos(self) -> list[RecordedVideo]:
+    def get_recorded_videos(self) -> List[RecordedVideo]:
         """
         Fetch the list of recorded videos available to view.
 
-        :return: A list of :class:`the RecordedVideo class <video.RecordedVideo>`
+        :return: A list of the class:`video.RecordedVideo` class
         """
         video_list_json = self.fetch_json('dc/student/recordinglist')
         video_list = list()
@@ -63,20 +64,20 @@ class AllenClient:
 
         return video_list
 
-    def get_live_classes(self) -> list[LiveClassDay]:
+    def get_live_classes(self) -> List[LiveClassDay]:
         """
         Fetch the list of upcoming live classes.
 
-        :return: A list of :class:`the LiveClassDay class <video.LiveClassDay>`
+        :return: A list of the class:`video.LiveClassDay` class
         """
         live_class_day_list_json = self.fetch_json('dc/student/livelist')
         return [LiveClassDay.from_json(live_class_day) for live_class_day in live_class_day_list_json]
 
-    def get_test_records(self) -> list[TestRecord]:
+    def get_test_records(self) -> List[TestRecord]:
         """
         Fetch the list of tests you've attempted.
 
-        :return: A list of :class:`the TestRecord class <test_record.TestRecord>`
+        :return: A list of the class:`test_record.TestRecord` class
         """
         json = self.fetch_json('studenttestrecord')
         test_list = json['testList']
