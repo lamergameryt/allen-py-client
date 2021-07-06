@@ -2,7 +2,7 @@
 
 ## Description
 
-Replace this sentence with general description of what your Pull Request does.
+Replace this sentence with a general description of what your Pull Request does.
 
 <!--- Check the applicable changes made with this pull request -->
 
