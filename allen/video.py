@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import List
 
 
 @dataclass(frozen=True, order=True)
@@ -92,7 +93,7 @@ class LiveClassDay:
     _date: str
     '''The date of the live class'''
 
-    live_classes: list[LiveClass]
+    live_classes: List[LiveClass]
     '''The list of live classes on this day'''
 
     @classmethod

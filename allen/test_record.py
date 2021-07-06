@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from allen.solution import SubjectSolution
 from datetime import datetime
+from typing import List
 
 
 @dataclass(frozen=True, order=True)
@@ -73,7 +74,7 @@ class TestRecord:
 
         return TestRecord(bio, phy, chem, math, total, percentage, rank, name, date, id)
 
-    def get_subject_solutions(self) -> list[SubjectSolution]:
+    def get_subject_solutions(self) -> List[SubjectSolution]:
         """
         Get the solutions of the test.
 
