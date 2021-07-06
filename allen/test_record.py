@@ -50,13 +50,22 @@ class TestRecord:
         :param client: The allen client.
         :meta private:
         """
-        bio = json_obj.get('Bio')
-        phy = json_obj.get('Phy')
-        chem = json_obj.get('Chem')
-        math = json_obj.get('Math')
-        total = json_obj.get('Total')
-        percentage = json_obj.get('Per')
-        rank = json_obj.get('Rank')
+        try:
+            bio = int(json_obj.get('Bio'))
+        except ValueError:
+            bio = -1
+
+        phy = int(json_obj.get('Phy'))
+        chem = int(json_obj.get('Chem'))
+
+        try:
+            math = int(json_obj.get('Math'))
+        except ValueError:
+            math = -1
+
+        total = int(json_obj.get('Total'))
+        percentage = float(json_obj.get('Per'))
+        rank = int(json_obj.get('Rank'))
         name = json_obj.get('TestName')
         date = json_obj.get('TestDate')
         id = json_obj.get('TestID')
@@ -76,9 +85,7 @@ class TestRecord:
         })
 
         subjects = solution['listPaper'][0]['listSubject']
-        solutions = list()
-        for subject in subjects:
-            solutions.append(SubjectSolution.from_json(subject))
+        solutions = [SubjectSolution.from_json(subject) for subject in subjects]
 
         return solutions
 

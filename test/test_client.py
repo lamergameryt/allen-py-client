@@ -26,12 +26,22 @@ class VideosTestCase(unittest.TestCase):
             r'(?::\d+)?'
             r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
-    def test_video_links(self):
+    def test_recorded_video_links(self):
         videos = self._client.get_recorded_videos()
         for video in videos:
             link = video.get_link()
             self.assertTrue(re.match(self._regex, link) is not None, msg='The url received from the server was '
                                                                          'invalid.')
 
-    def test_solution(self):
-        solutions = self._client.get_test_records()
+    def test_live_class(self):
+        video_days = self._client.get_live_classes()
+        for video_day in video_days:
+            for live_class in video_day.live_classes:
+                self.assertGreaterEqual(live_class.remaining_time, 0, msg='The live class time remaining '
+                                                                          'cannot be less than zero.')
+
+    def test_test_records(self):
+        test_records = self._client.get_test_records()
+        for test_record in test_records:
+            self.assertGreaterEqual(test_record.percentage, 0.0, msg='The percentage of marks received cannot be less'
+                                                                     'than zero.')

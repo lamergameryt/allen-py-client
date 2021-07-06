@@ -2,7 +2,7 @@ import random
 import requests
 from typing import Union
 from allen.utils import fetch_jwt_from_otp, require_otp, validate_response
-from allen.video import RecordedVideo
+from allen.video import RecordedVideo, LiveClassDay
 from allen.exceptions import AllenInvalidUsernamePassword, AllenResponseUnavailable, AllenInvalidResponse
 from allen.test_record import TestRecord
 
@@ -52,16 +52,25 @@ class AllenClient:
 
         :return: A list of :class:`the RecordedVideo class <video.RecordedVideo>`
         """
-        video_day_list = self.fetch_json('dc/student/recordinglist')
+        video_list_json = self.fetch_json('dc/student/recordinglist')
         video_list = list()
 
-        for video_day in video_day_list:
+        for video_day in video_list_json:
             date = video_day['ClassDate']
             video_json_list = video_day['listClass']
             for video_json in video_json_list:
                 video_list.append(RecordedVideo.from_json(video_json, date, self))
 
         return video_list
+
+    def get_live_classes(self) -> list[LiveClassDay]:
+        """
+        Fetch the list of upcoming live classes.
+
+        :return: A list of :class:`the LiveClassDay class <video.LiveClassDay>`
+        """
+        live_class_day_list_json = self.fetch_json('dc/student/livelist')
+        return [LiveClassDay.from_json(live_class_day) for live_class_day in live_class_day_list_json]
 
     def get_test_records(self) -> list[TestRecord]:
         """

@@ -48,11 +48,9 @@ class SubjectSolution:
         """
         subject_name = str(json_obj.get('SubjectName')).title()
         total_questions = json_obj.get('QTo')
-        solutions = list()
 
         questions = json_obj.get('listQuestion')
-        for question in questions:
-            solutions.append(Solution.from_json(question))
+        solutions = [Solution.from_json(question) for question in questions]
 
         return SubjectSolution(subject_name, total_questions, solutions)
 
