@@ -3,14 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to AllenPyClient's documentation!
-=========================================
+AllenPyClient: An Allen API Wrapper
+===================================
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
-   :caption: Contents:
 
-   allenpyclient
+   api
+
+.. include:: ../README.rst
 
 
 Indices and tables

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from allen import AllenClient
 from allen.exceptions import AllenInvalidUsernamePassword, AllenInvalidResponse
 import pathlib
@@ -29,7 +31,7 @@ def print_help():
           "Please report any bugs by creating an issue at https://github.com/lamergameryt/allen-py-client")
 
 
-def get_details(reset: bool = False) -> dict:
+def get_details(reset: bool = False) -> Optional[dict]:
     """
     Retrieves or resets the credentials of the user.
 

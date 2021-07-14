@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 
 @dataclass(frozen=True, order=True)
@@ -39,7 +39,7 @@ class RecordedVideo:
         json = self.client.fetch_json('dc/student/recordingplayer', post_data={'UniqueCode': self.unique_code})
         return json['ClassURL']
 
-    def get_recording_date(self) -> str:
+    def get_recording_date(self) -> Optional[str]:
         """
         Returns the date of the recording in ``Thursday : 01 January 1970`` format.
 
@@ -110,7 +110,7 @@ class LiveClassDay:
 
         return LiveClassDay(class_day, _date, live_classes)
 
-    def get_live_class_date(self) -> str:
+    def get_live_class_date(self) -> Optional[str]:
         """
         Returns the date of the live classes in ``Thursday : 01 January 1970`` format.
 

@@ -27,7 +27,7 @@ class AllenClient:
         :param jwt: The JWT Token
         """
 
-        # Checks to ensure code consistancy.
+        # Checks to ensure code consistency.
         if username is None:
             username = ""
         if password is None:
@@ -89,7 +89,7 @@ class AllenClient:
         return tests
 
     def fetch_json(self, url_path: str, http_method: str = 'POST', secure: bool = True, headers: dict = None,
-                   query_params: dict = None, post_data: dict = None) -> Union[dict, requests.Response]:
+                   query_params: dict = None, post_data: dict = None) -> dict:
         """
         Fetch some JSON from Allen's API.
 

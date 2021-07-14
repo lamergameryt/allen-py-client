@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from allen.solution import SubjectSolution
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 
 @dataclass(frozen=True, order=True)
@@ -90,7 +90,7 @@ class TestRecord:
 
         return solutions
 
-    def get_test_date(self) -> str:
+    def get_test_date(self) -> Optional[str]:
         """
         Returns the date of the test in ``Thursday : 01 January 1970`` format.
 
