@@ -16,7 +16,7 @@ class Solution:
     @classmethod
     def from_json(cls, json_obj: dict):
         """
-        Deserialize the video json dict to a TestSolution object.
+        Deserialize the solution json dict to a TestSolution object.
 
         :param json_obj: The json dictionary to deserialize.
         :meta private:
@@ -42,7 +42,7 @@ class SubjectSolution:
     @classmethod
     def from_json(cls, json_obj: dict):
         """
-        Deserialize the video json dict to a TestSolution object.
+        Deserialize the solution json dict to a TestSolution object.
 
         :param json_obj: The json dictionary to deserialize.
         :meta private:

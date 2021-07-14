@@ -45,7 +45,7 @@ class TestRecord:
     @classmethod
     def from_json(cls, json_obj: dict, client):
         """
-        Deserialize the video json dict to a TestRecord object.
+        Deserialize the test json dict to a TestRecord object.
 
         :param json_obj: The json dictionary to deserialize.
         :param client: The allen client.
@@ -69,10 +69,10 @@ class TestRecord:
         rank = int(json_obj.get('Rank'))
         name = json_obj.get('TestName')
         date = json_obj.get('TestDate')
-        id = json_obj.get('TestID')
+        test_id = json_obj.get('TestID')
         cls.client = client
 
-        return TestRecord(bio, phy, chem, math, total, percentage, rank, name, date, id)
+        return TestRecord(bio, phy, chem, math, total, percentage, rank, name, date, test_id)
 
     def get_subject_solutions(self) -> List[SubjectSolution]:
         """

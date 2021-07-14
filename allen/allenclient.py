@@ -4,6 +4,7 @@ from typing import Union
 from allen.utils import fetch_jwt_from_otp, require_otp, validate_response
 from allen.video import RecordedVideo, LiveClassDay
 from allen.exceptions import AllenInvalidUsernamePassword, AllenResponseUnavailable, AllenInvalidResponse
+from allen.exam import Examination
 from allen.test_record import TestRecord
 from typing import List
 
@@ -79,14 +80,17 @@ class AllenClient:
 
         :return: A list of the class:`test_record.TestRecord` class
         """
-        json = self.fetch_json('studenttestrecord')
-        test_list = json['testList']
-        tests = list()
+        test_list = self.fetch_json('studenttestrecord').get('testList')
+        return [TestRecord.from_json(test, self) for test in test_list]
 
-        for test in test_list:
-            tests.append(TestRecord.from_json(test, self))
+    def get_exam_calendar(self) -> List[Examination]:
+        """
+        Fetch the list of exams on the exam calendar.
 
-        return tests
+        :return: A list of the class:`exam.Examination` class
+        """
+        json = self.fetch_json('studentexamcalendar')
+        return [Examination.from_json(exam) for exam in json]
 
     def fetch_json(self, url_path: str, http_method: str = 'POST', secure: bool = True, headers: dict = None,
                    query_params: dict = None, post_data: dict = None) -> dict:
