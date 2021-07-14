@@ -17,7 +17,6 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'AllenPyClient'
@@ -55,6 +54,9 @@ exclude_patterns = []
 #
 html_theme = 'furo'
 thml_theme_path = furo.THEME_PATH
+html_theme_options = {
+    'navigation_depth': 4,
+}
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False

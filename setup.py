@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='allen-py-client',
-    version='1.1.0',
+    version='1.1.101',
     description='Unofficial python wrapper for Allen\'s web API.',
     long_description=open('README.rst', encoding="utf8").read(),
     author='Harsh Patil',
