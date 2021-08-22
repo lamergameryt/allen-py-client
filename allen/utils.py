@@ -57,7 +57,7 @@ def require_otp(response: requests.Response) -> Union[int, bool]:
         return False
 
 
-def fetch_jwt_from_otp(username: str, password: str, device_id: str, student_id: int):
+def fetch_jwt_from_otp(username: str, password: str, device_id: int, student_id: int):
     """
     Fetch the JWT token based on the OTP generated.
 

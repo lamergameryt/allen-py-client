@@ -45,3 +45,22 @@ class VideosTestCase(unittest.TestCase):
         for test_record in test_records:
             self.assertGreaterEqual(test_record.percentage, 0.0, msg='The percentage of marks received cannot be less'
                                                                      'than zero.')
+
+    def test_examination_calendar(self):
+        examinations = self._client.get_exam_calendar()
+        day_list = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+        for exam in examinations:
+            self.assertTrue(exam.test_day.lower() in day_list, msg='The examination day has to be one of the seven '
+                                                                   'days in the week.')
+
+    def test_addon_classes(self):
+        addon_classes = self._client.get_addon_classes()
+
+        # Highly dependent on the user account.
+        self.assertEqual(len(addon_classes), 6, msg='The number of addon classes present is incorrect.')
+
+        for chapter in addon_classes[0].chapters:
+            for video in chapter.videos:
+                link = video.get_link()
+                self.assertTrue(re.match(self._regex, link) is not None, msg='The url received from the server was '
+                                                                             'invalid.')
