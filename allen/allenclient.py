@@ -5,6 +5,7 @@ from allen.utils import fetch_jwt_from_otp, require_otp, validate_response
 from allen.video import RecordedVideo, LiveClassDay
 from allen.exceptions import AllenInvalidUsernamePassword, AllenResponseUnavailable, AllenInvalidResponse
 from allen.exam import Examination
+from allen.addon_classes import AddonClass
 from allen.test_record import TestRecord
 from typing import List
 
@@ -91,6 +92,15 @@ class AllenClient:
         """
         json = self.fetch_json('studentexamcalendar')
         return [Examination.from_json(exam) for exam in json]
+
+    def get_addon_classes(self) -> List[AddonClass]:
+        """
+        Fetch the list of addon classes available.
+
+        :return: A list of the class:`addon_classes.AddonClass` class
+        """
+        json = self.fetch_json('discussion/student/list')
+        return [AddonClass.from_json(addon_class, self) for addon_class in json]
 
     def fetch_json(self, url_path: str, http_method: str = 'POST', secure: bool = True, headers: dict = None,
                    query_params: dict = None, post_data: dict = None) -> dict:
