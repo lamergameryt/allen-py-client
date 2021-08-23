@@ -12,8 +12,8 @@ AllenPyClient is an unofficial Python wrapper to develop applications integratin
     :target: https://badge.fury.io/py/allen-py-client
 .. |Docs| image:: https://readthedocs.org/projects/allenpyclient/badge/?version=latest
     :target: https://allenpyclient.readthedocs.io/en/latest/?badge=latest
-.. |Code Quality| image:: https://img.shields.io/lgtm/grade/python/github/lamergameryt/AllenVideoDownloader
-    :target: https://lgtm.com/projects/g/lamergameryt/AllenVideoDownloader/context:python
+.. |Code Quality| image:: https://img.shields.io/lgtm/grade/python/github/lamergameryt/allen-py-client
+    :target: https://lgtm.com/projects/g/lamergameryt/allen-py-client/alerts/
 
 ⏩ Quick Example
 ----------------
