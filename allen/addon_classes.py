@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
+__all__ = ['AddonVideo', 'AddonClass', 'AddonChapter']
+
 
 @dataclass(frozen=True, order=True)
 class AddonVideo:

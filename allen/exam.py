@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from typing import Optional
 from datetime import datetime
 
+__all__ = ['Examination']
+
 
 @dataclass(frozen=True, order=True)
 class Examination:

@@ -9,6 +9,8 @@ from allen.addon_classes import AddonClass
 from allen.test_record import TestRecord
 from typing import List
 
+__all__ = ['AllenClient']
+
 
 class AllenClient:
     """

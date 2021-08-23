@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import List, Optional
 
+__all__ = ['RecordedVideo', 'LiveClassDay', 'LiveClass']
+
 
 @dataclass(frozen=True, order=True)
 class RecordedVideo:

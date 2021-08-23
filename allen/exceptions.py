@@ -1,5 +1,7 @@
 import requests
 
+__all__ = ['AllenInvalidUsernamePassword', 'AllenInvalidResponse', 'AllenResponseUnavailable']
+
 
 class AllenInvalidUsernamePassword(Exception):
     """
@@ -41,17 +43,3 @@ class AllenInvalidResponse(Exception):
         status_code = self._response.status_code
         url = self._response.request.url
         return f'{url} (Status Code : {status_code})'
-
-
-class AllenInvalidJWT(Exception):
-    """
-    Exception representing an invalid JWT used to perform a request.
-    """
-
-    def __init__(self, jwt: str):
-        super().__init__(self)
-        self._jwt = jwt
-
-    def __str__(self):
-        jwt = self._jwt
-        return f'The jwt token {jwt} is not valid.'

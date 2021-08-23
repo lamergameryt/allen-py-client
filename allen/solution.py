@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
+__all__ = ['Solution', 'SubjectSolution']
+
 
 @dataclass(frozen=True, order=True)
 class Solution:

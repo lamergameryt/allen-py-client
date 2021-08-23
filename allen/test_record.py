@@ -3,6 +3,8 @@ from allen.solution import SubjectSolution
 from datetime import datetime
 from typing import List, Optional
 
+__all__ = ['TestRecord']
+
 
 @dataclass(frozen=True, order=True)
 class TestRecord:
