@@ -4,7 +4,7 @@ AllenPyClient
 
 AllenPyClient is an unofficial Python wrapper to develop applications integrating Allen's official web API.
 
-|PyPi| |Docs| |License| |Followers|
+|Code Quality| |PyPi| |Docs| |License| |Followers|
 
 .. |License| image:: https://img.shields.io/github/license/lamergameryt/allen-py-client
 .. |Followers| image:: https://img.shields.io/github/followers/lamergameryt?style=social
@@ -12,6 +12,8 @@ AllenPyClient is an unofficial Python wrapper to develop applications integratin
     :target: https://badge.fury.io/py/allen-py-client
 .. |Docs| image:: https://readthedocs.org/projects/allenpyclient/badge/?version=latest
     :target: https://allenpyclient.readthedocs.io/en/latest/?badge=latest
+.. |Code Quality| image:: https://img.shields.io/lgtm/grade/python/github/lamergameryt/AllenVideoDownloader
+    :target: https://lgtm.com/projects/g/lamergameryt/AllenVideoDownloader/context:python
 
 ⏩ Quick Example
 ----------------
